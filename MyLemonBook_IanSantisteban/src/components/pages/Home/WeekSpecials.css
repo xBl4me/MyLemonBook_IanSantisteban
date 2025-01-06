@@ -1,0 +1,80 @@
+.week-specials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 1.5rem; /* Más espacio entre elementos */
+  padding: 2rem; /* Espaciado alrededor del contenido */
+  background-color: #f9f9f9; /* Fondo suave */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+.week-specials-header {
+  grid-column: 1 / -1; /* Ocupa todo el ancho */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.week-specials-header h2 {
+  font-family: "Markazi Text", serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #333a47; /* Texto oscuro */
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra para realce */
+}
+
+.week-specials-header a {
+  text-decoration: none;
+  color: #4d8be4;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #eef6ff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.week-specials-header a:hover {
+  background-color: #4d8be4;
+  color: #ffffff;
+}
+
+/*-- Media queries ------------------------------------------------------*/
+
+@media (max-width: 960px) {
+  .week-specials {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem; /* Ajuste del espacio */
+  }
+
+  .week-specials-header {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .week-specials-header a {
+    margin-top: 1rem; /* Separación para el botón */
+  }
+}
+
+@media (max-width: 692px) {
+  .week-specials {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .week-specials-header {
+    align-items: center;
+    text-align: center;
+  }
+
+  .week-specials-header a {
+    align-self: center;
+    margin-top: 1rem;
+  }
+}

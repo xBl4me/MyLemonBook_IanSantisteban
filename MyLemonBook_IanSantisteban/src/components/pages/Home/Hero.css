@@ -1,0 +1,134 @@
+.hero {
+  position: relative;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #333A47 0%, #4D8BE4 100%); /* Fondo degradado */
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-information {
+  grid-column: 1;
+  z-index: 2;
+}
+
+.hero-information h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-information h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: #F4CE14; /* Acento llamativo */
+}
+
+.hero-information p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.hero-information .button-primary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333A47;
+  background-color: #F4CE14;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.2s;
+}
+
+.hero-information .button-primary:hover,
+.hero-information .button-primary:focus {
+  background-color: #FF8C42;
+  border-color: #FF8C42;
+  transform: scale(1.05);
+}
+
+.hero-image {
+  grid-column: 2;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  max-height: 28rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-image:hover img {
+  transform: scale(1.1); /* Zoom suave al hover */
+}
+
+/* Elemento decorativo */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  transform: translateY(-50%) rotate(-25deg);
+  z-index: 0;
+}
+
+/*-- Media queries ------------------------------------------------------*/
+
+@media (max-width: 992px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-information {
+    grid-column: 1;
+  }
+
+  .hero-image {
+    grid-column: 1;
+    margin: 2rem auto 0 auto;
+    max-width: 90%;
+    max-height: 20rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-information h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero-information h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-information p {
+    font-size: 1rem;
+  }
+
+  .hero-information .button-primary {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.25rem;
+  }
+}

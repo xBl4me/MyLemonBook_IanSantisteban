@@ -1,0 +1,125 @@
+.nav-bar {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  min-height: 6.25rem;
+  background-color: #333A47; /* Fondo oscuro consistente */
+  padding: 0 1rem;
+}
+
+.nav-bar-logo {
+  grid-column: 1;
+  justify-self: start;
+  align-self: center;
+  line-height: 0;
+}
+
+.nav-bar-logo img {
+  max-width: 15.625rem;
+  height: auto;
+}
+
+.nav-bar-hamburger {
+  grid-column: 2;
+  display: none;
+  cursor: pointer;
+  color: #F4CE14; /* Color de icono consistente */
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-bar-hamburger:hover {
+  color: #FF8C42; /* Hover con un color más vibrante */
+}
+
+.nav-bar-links {
+  grid-column: 3;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-bar-links.expanded {
+  transform: translateX(0);
+}
+
+.nav-bar-links li {
+  display: flex;
+}
+
+.nav-bar-links a {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
+  color: #EDEDED; /* Softer white for text */
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.current-location,
+.nav-bar-links a:hover,
+.nav-bar-links a:focus {
+  background-color: #F4CE14; /* Fondo de hover */
+  color: #333A47; /* Contraste en texto durante hover */
+}
+
+@media only screen and (max-width: 992px) {
+  .nav-bar {
+    grid-template-columns: auto auto;
+  }
+
+  .nav-bar-hamburger {
+    display: block;
+    justify-self: end;
+  }
+
+  .nav-bar-links {
+    position: absolute;
+    flex-direction: column;
+    width: 70%; /* Más espacio para menú móvil */
+    height: 100vh;
+    top: 0;
+    left: -100%;
+    background-color: #333A47; /* Fondo oscuro para menú móvil */
+    box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    padding-top: 2rem;
+    transform: translateX(-100%);
+  }
+
+  .nav-bar-links.expanded {
+    transform: translateX(0);
+  }
+
+  .nav-bar-links li {
+    flex-direction: column;
+    border-bottom: 1px solid #F4CE14; /* Líneas separadoras */
+  }
+
+  .nav-bar-links a {
+    padding: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .nav-bar {
+    padding: 0 0.5rem;
+  }
+
+  .nav-bar-links {
+    width: 80%; /* Ancho más reducido para dispositivos pequeños */
+  }
+
+  .nav-bar-links a {
+    padding: 1rem;
+    font-size: 0.9rem; /* Ajuste de tamaño de fuente */
+  }
+}
